@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8" />
+    
+</head>
+<body>
+    <div id="main">
+        <input type="button" value="show" id="showButton" />
+        <br />
+        <input type="button" value="hide" id="hideButton" />
+        <br />
+        <img src="logos/Mercedes-Benz-logo.png" class="thumbnail" id="ext1" />
+        <img src="logos/Honda-logo.png" class="thumbnail" id="ext2" />
+        <img src="logos/Toyota-logo.png" class="thumbnail" id="ext3" />
+        <br />
+        <img src="logos/supercar.png" id="mainImage" />
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            console.log('ready');
+            $('#mainImage').hide();
+            $('#hideButton').hide();
+        });
+
+        $('#main').children('.thumbnail').css({ 'border': '5px solid gray' });
+
+        $('.thumbnail').siblings('.thumbnail').css({ 'width': '100px' });
+
+        $('#main').find('#showButton').click(function () {
+            $('#mainImage').show();
+            $(this).fadeOut();
+            $('#hideButton').fadeIn();
+            console.log('show');
+        });
+
+        $('#main').find('#hideButton').click(function () {
+            $('#mainImage').hide();
+            $(this).fadeOut();
+            $('#showButton').fadeIn();
+            console.log('hide');
+        });
+
+        $('#ext1').click(function () {
+            $('#mainImage').attr('src', 'logos/supercar.png');
+        });
+        $('#ext2').click(function () {
+            $('#mainImage').attr('src', 'logos/nsx.jpg');
+        });
+        $('#ext3').click(function () {
+            $('#mainImage').attr('src', 'logos/toyota.jpg');
+        });
+    </script>
+</body>
+</html>
